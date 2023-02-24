@@ -1,3 +1,70 @@
 {
-  "extends": "next/core-web-vitals"
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks"
+    ],
+    "ignorePatterns": ["**/iconComponents"],
+    "rules": {
+        "no-console": "off",
+        "react/no-array-index-key": "off",
+        "no-restricted-syntax": [
+            "warn",
+            {
+                "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(info|error)$/]",
+                "message": "Unexpected property on console object was called"
+            }
+        ],
+        "no-param-reassign": ["error", { "props": false }],
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]}],
+        "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never"} ],
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": ["error"],
+        "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+        "max-len": ["warn", { "code": 150 }],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "off",
+        "import/prefer-default-export": "off",
+        "react/prop-types": "off",
+        "react/require-default-props": "off",
+        "react/function-component-definition": [ 2, { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "off",
+        "comma-dangle": ["error", "never"],
+        "import/no-extraneous-dependencies": [ "error", {
+            "devDependencies": [
+            "**/*.test.*",
+            "**/__test__/**/*.*",
+            "**/test-utils.tsx",
+            "**/setupTests.ts"
+            ]
+        }
+    ]
+    },
+    "settings": {
+        "import/resolver": {
+             "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    }
 }

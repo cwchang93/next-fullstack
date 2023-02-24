@@ -1,21 +1,11 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-const AboutUs = () =>{
+const AboutUs = ():JSX.Element => {
+  useEffect(() => {
+    console.log('effect');
+  }, []);
 
-    useEffect(()=>{
-        console.log('effect')
-    },[])
-
-    console.log('render');
-
-
-
-    return (
-    <div>
-         This is About Us Page
-    </div>
-    )
-}
-
+  return <div>This is About Us Page</div>;
+};
 
 export default AboutUs;
